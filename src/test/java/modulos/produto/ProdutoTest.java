@@ -20,7 +20,6 @@ public class ProdutoTest {
     public void beforeEach(){
         // Confgurando os dados da API Rest da Lojinha
         baseURI = "http://165.227.93.41";
-
         basePath = "/lojinha-bugada";
 
         // Obter Token do usuario admin
@@ -40,8 +39,6 @@ public class ProdutoTest {
     @DisplayName("Validar o do valor do produto igual a 0.00 nao é permitido ")
     public void testValidarLimitesZeradoProibidoValorProduto() {
 
-
-
         // Tentar inserir um produto com valor 0.00 e validae que a mensagem de erro foi apresentada e o
         // Status code retornado foi 422
 
@@ -58,8 +55,6 @@ public class ProdutoTest {
                     .assertThat()
                         .body("error", equalTo("O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00"))
                         .statusCode(422);
-
-
     }
 
     @Test
@@ -83,7 +78,5 @@ public class ProdutoTest {
                     .assertThat()
                         .body("error", equalTo("O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00"))
                         .statusCode(422);
-
-
     }
 }
